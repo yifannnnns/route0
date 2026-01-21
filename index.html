@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>象山〇号公路 | 数字文旅</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <!-- 引入腾讯地图 API -->
+    <script charset="utf-8" src="https://map.qq.com/api/gljs?v=1.exp&key=OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#00E0EF", // Brighter, cleaner cyan for daylight
+                        secondary: "#3B82F6", 
+                        accent: "#0F172A",
+                        "background-dark": "#F8FAFC" // Changed to light slate
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        display: ['"Plus Jakarta Sans"', 'sans-serif']
+                    },
+                    backgroundImage: {
+                        'cyan-blue-gradient': 'linear-gradient(135deg, #00E0EF 0%, #3B82F6 100%)',
+                    }
+                }
+            }
+        };
+    </script>
+    <style>
+        .glass-circle {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.4);
+        }
+        .main-hub-shadow {
+            box-shadow: 0 10px 40px rgba(0, 224, 239, 0.25);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .route-glow {
+            filter: drop-shadow(0 0 8px rgba(0, 224, 239, 0.5));
+        }
+        body {
+            background-color: #F8FAFC;
+            color: #0F172A;
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+        }
+        /* Adjusted noise for light mode: softer and less "gritty" */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0.15;
+            pointer-events: none;
+            background-image: url("https://www.transparenttextures.com/patterns/clean-gray-paper.png");
+            z-index: 999;
+            mix-blend-mode: multiply;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+        .floating {
+            animation: float 5s ease-in-out infinite;
+        }
+        .logo-text, .logo-img { display: none !important; }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "@google/genai": "https://esm.sh/@google/genai@^1.37.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
